@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script to pull all updates from the original projects the projects
-# were forked from.
+# Script to pull all updates from all project origins and push
+# those to the modelica-3rdparty forks
 # Currently we expect to find the fork origin in "upstream/master"
 
 libDir=`pwd`
