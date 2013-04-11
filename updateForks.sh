@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Script to pull all updates from all project origins and push
 # those to the modelica-3rdparty forks.
