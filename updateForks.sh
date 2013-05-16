@@ -9,7 +9,7 @@
 # This script should be put/cloned into the parent directory
 # of the bare repos of all forks to be mirrored.
 
-libDir=`pwd`
+libDir=`/home/git/GitHub-mirrors`
 
 for LIB in `ls -F |grep / | sed 's#/$##'`; do
 #    echo "$libDir/$LIB"
