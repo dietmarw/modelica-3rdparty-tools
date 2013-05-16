@@ -18,5 +18,6 @@ for LIB in `ls -F |grep / | sed 's#/$##'`; do
     	(echo "Syncing updates of $LIB ..."; \
 	git remote update; \
 	git push --mirror modelica-3rdparty -q) || \
-	echo "Looks like $LIB is not a fork, skipping.";
+	(echo "Looks like $LIB is not a fork, so only pulling updates."; \
+	git remote update --prune;)
 done;
