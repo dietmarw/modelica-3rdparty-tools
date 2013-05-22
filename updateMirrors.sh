@@ -10,10 +10,10 @@
 # of the bare repos of all forks to be mirrored.
 
 libDir="/home/git/GitHub-mirrors"
+cd $libDir
 
 for LIB in `ls -F |grep / | sed 's#/$##'`; do
-#    echo "$libDir/$LIB"
-    cd "$libDir/$LIB"
+    cd "$LIB"
     git remote | grep 'modelica-3rdparty' && \
     	(echo "Syncing updates of $LIB ..."; \
 	git remote update; \
