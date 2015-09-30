@@ -2,7 +2,7 @@
 
 # Script to recursively trigger git garbage collection.
 
-libDir="/home/git/GitHub-mirrors"
+libDir=`pwd`
 cd $libDir
 
 for LIB in `ls -F |grep / | sed 's#/$##'`; do
