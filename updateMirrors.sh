@@ -16,7 +16,7 @@ for LIB in `ls -F |grep / | sed 's#/$##'`; do
     cd "$libDir/$LIB"
     echo "Syncing updates of $LIB :"
     git remote | grep 'modelica-3rdparty' && \
-       (git remote update; \
+       (git remote update --prune; \
         git push --mirror modelica-3rdparty -q) || \
         (echo "Looks like $LIB is not a fork, so only pulling updates."; \
         git remote update --prune;)
