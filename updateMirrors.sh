@@ -18,6 +18,6 @@ for LIB in `ls -F |grep / | sed 's#/$##'`; do
     git remote | grep 'modelica-3rdparty' && \
        (git remote update --prune; \
         git push --mirror modelica-3rdparty -q) || \
-        (echo "Looks like $LIB is not a fork, so only pulling updates."; \
+        (echo "Looks like $LIB is not a fork, so only fetching updates."; \
         git remote update --prune;)
 done;
