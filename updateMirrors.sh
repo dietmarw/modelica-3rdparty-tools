@@ -15,9 +15,13 @@ cd $libDir
 for LIB in `ls -F |grep / | sed 's#/$##'`; do
     cd "$libDir/$LIB"
     echo "Syncing updates of $LIB :"
+    git remote update --prune
+    echo "Updates of $LIB fetched."
     git remote | grep 'modelica-3rdparty' && \
-       (git remote update --prune; \
-        git push --mirror modelica-3rdparty -q) || \
-        (echo "Looks like $LIB is not a fork, so only fetching updates."; \
-        git remote update --prune;)
+        ( echo "Pushing updates to modelica-3rdparty"; \
+          git push --mirror modelica-3rdparty -q) || \
+          ( git remote | grep 'modelica-tools' && \
+            ( echo "Pushing updates to modelica-tools"; \
+            git push --mirror modelica-tools -q) || \
+           (echo "Looks like $LIB is not a fork, so we are done."))
 done;
